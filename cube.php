@@ -28,51 +28,12 @@
           border:1px solid #d3d3d3;
           background-color: #f1f1f1;
       }
-
-      .container {
-        position: relative;
-        width: 50%;
-      }
-
-      .image {
-        display: block;
-        width: 100%;
-        height: auto;
-      }
-
-      .overlay {
-          position: absolute;
-          top: 0;
-          bottom: 0;
-          left: 0;
-          right: 0;
-          height: 100%;
-          width: 100%;
-          opacity: 0;
-          transition: .5s ease;
-          background-color: rgb(8, 234, 193);
-      }
-
-      .container:hover .overlay {
-        opacity: 0.5;
-      }
-
-      .text {
-        color: white;
-        font-size: 20px;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        -webkit-transform: translate(-50%, -50%);
-        -ms-transform: translate(-50%, -50%);
-        transform: translate(-50%, -50%);
-        text-align: center;
-      }
     </style>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="js/cube.js"></script>
     
     <style>
       .ui-widget-content {
@@ -141,15 +102,20 @@
       </nav>
       <hr/>
       <div class="p-3 mb-2 text-dark" id="parent">
-          <h3 align="center"><b>Please select game</b></h3>
-          <hr/>
-
-          <div class="container">
-              <img src="images/cube.png" alt="Cube" class="image">
-              <div class="overlay">
-                <div class="text"><a href="cube.php">Play it now</a></div>
-              </div>
-          </div>
+        <p id="values"></p>
+        <div id="game">
+          <br>
+          <button onmousedown="restartGame()">RESTART</button>
+          <p>Use the Space button to push your velocity up.</p>
+          <p>Left click - shooting</p>
+          <p>Z - Open shield</p>
+        </div>
+        <?php
+            include "lib/qrlib.php";
+            $score = 0;
+            $outputStr = 'Your score: '.$score.' You are insane!!';
+            QRcode::png($outputStr, 'image.png', 'L', 8, 4);
+        ?>
       </div>
       <footer class="footer">
         <div class="container-fluid bg-dark">
