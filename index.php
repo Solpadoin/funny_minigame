@@ -8,106 +8,15 @@
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
     <link rel="stylesheet" href="http://ajax.aspnetcdn.com/ajax/jquery.ui/1.10.3/themes/sunny/jquery-ui.css">
+    <link rel="stylesheet" href="css/main.css">
 
     <title>Web Game</title>
 
-    <style>
-      body {
-          margin-bottom: 60px; /* footer height */
-      }
-
-      .footer {
-          position: absolute;
-          bottom: 0;
-          height: 30px;
-          width: 100%;
-          background-color:lightsteelblue;
-      }
-
-      canvas {
-          border:1px solid #d3d3d3;
-          background-color: #f1f1f1;
-      }
-
-      .container {
-        position: relative;
-        width: 50%;
-      }
-
-      .image {
-        display: block;
-        width: 100%;
-        height: auto;
-      }
-
-      .overlay {
-          position: absolute;
-          top: 0;
-          bottom: 0;
-          left: 0;
-          right: 0;
-          height: 100%;
-          width: 100%;
-          opacity: 0;
-          transition: .5s ease;
-          background-color: rgb(8, 234, 193);
-      }
-
-      .container:hover .overlay {
-        opacity: 0.5;
-      }
-
-      .text {
-        color: white;
-        font-size: 20px;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        -webkit-transform: translate(-50%, -50%);
-        -ms-transform: translate(-50%, -50%);
-        transform: translate(-50%, -50%);
-        text-align: center;
-      }
-    </style>
-
+    <!-- JavaScript -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    
-    <style>
-      .ui-widget-content {
-          background:black;
-      }
-    </style>
-
-    <script>   
-          $( function() {
-          var availableTags = [
-            "Dimon is a bro",
-            "Dimon is a druk",
-            "Sanya kracava",
-            "Bodia Good",
-            "Vladosik Nice",
-            "Vladosik Krut"
-          ];
-
-          $( "#tags" ).autocomplete({
-            source: availableTags,
-            focus:  displayItem,
-            select: displayItem,
-            change: displayItem
-          });
-
-          function displayItem(event, ui) {
-            $('#values').text(ui.item.label)
-          }
-
-          $( document ).ready(function() {
-            $("canvas").appendTo("#game");
-          });
-        });
-    </script>
-
+    <script src="js/jquery.js"></script>
   </head>
   <body onload="startGame()">
       <nav class="navbar navbar-expand-lg navbar-dark bg-dark text-white h-50">
@@ -143,7 +52,6 @@
       <div class="p-3 mb-2 text-dark" id="parent">
           <h3 align="center"><b>Please select game</b></h3>
           <hr/>
-
           <div class="container">
               <img src="images/cube.png" alt="Cube" class="image">
               <div class="overlay">
